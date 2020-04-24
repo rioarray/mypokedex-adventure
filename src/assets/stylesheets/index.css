@@ -1,0 +1,31 @@
+@import "~antd/dist/antd.css";
+
+.logo {
+  width: 120px;
+  height: 31px;
+  background-image: url("./pokemon-logo.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.pokemon-list h4.ant-typography,
+.ant-typography h4 {
+  margin-bottom: 0.2em;
+}
+
+.pokemon-list .pokemon-name {
+  text-transform: capitalize;
+}
+
+.pokemon-list .pokemon-types {
+  text-transform: capitalize;
+}
+
+.pokemon-list .pokemon-habitat-label {
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: capitalize;
+}
