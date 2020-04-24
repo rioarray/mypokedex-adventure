@@ -8,7 +8,7 @@ export const LayoutComponent = (props) => (
   <Layout>
     <Header />
     <Content style={{ padding: '0 70px', marginTop: 64 }}>
-      <div style={{ padding: 25, minHeight: '100vh' }}>
+      <div style={{ padding: 25 }}>
         {props.children}
       </div>
     </Content>
