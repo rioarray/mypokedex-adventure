@@ -29,3 +29,7 @@
   font-size: 12px;
   text-transform: capitalize;
 }
+
+.loader {
+  text-align: center;
+}
