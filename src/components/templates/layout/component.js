@@ -1,14 +1,14 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { Header } from 'components/templates/header';
+import { Header } from 'components/atom/header';
 
 const { Content } = Layout;
 
 export const LayoutComponent = (props) => (
   <Layout>
-    <Header />
-    <Content style={{ padding: '0 70px', marginTop: 64 }}>
-      <div style={{ padding: 25 }}>
+    <Content style={{ padding: '0 70px' }}>
+      <div id="pokemon-page-wrapper" style={{ padding: 25 }}>
+        <Header />
         {props.children}
       </div>
     </Content>

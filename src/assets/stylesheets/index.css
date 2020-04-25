@@ -1,14 +1,20 @@
 @import "~antd/dist/antd.css";
 
+#pokemon-page-wrapper .ant-back-top-content {
+  background-color: #1088e9;
+}
+
 .logo {
-  width: 120px;
-  height: 31px;
+  width: 240px;
+  height: 110px;
   background-image: url("./pokemon-logo.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  margin: 16px 24px 16px 0;
-  float: left;
+}
+
+.pokemon-list {
+  padding-top: 20px;
 }
 
 .pokemon-list h4.ant-typography,
@@ -16,11 +22,13 @@
   margin-bottom: 0.2em;
 }
 
-.pokemon-list .pokemon-name {
+.pokemon-list .pokemon-name,
+.pokemon-detail .pokemon-name {
   text-transform: capitalize;
 }
 
-.pokemon-list .pokemon-types {
+.pokemon-list .pokemon-types,
+.pokemon-detail .pokemon-types {
   text-transform: capitalize;
 }
 
@@ -28,6 +36,26 @@
   font-weight: bold;
   font-size: 12px;
   text-transform: capitalize;
+}
+
+.pokemon-detail .ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.pokemon-detail .ant-carousel .slick-slide img {
+  display: inline-block;
+  width: 30%;
+}
+
+.pokemon-detail .pokemon-stats-label {
+  text-transform: capitalize;
+}
+
+.font-bold {
+  font-weight: bold;
 }
 
 .loader {

@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Spin } from 'antd';
+import React, { Component, Fragment } from 'react';
+import { BackTop, Spin } from 'antd';
 import { PokeApi } from 'utils/pokemon-api';
+import { v4 as uuidv4 } from 'uuid';
 import InfiniteScroll from 'react-infinite-scroller';
 import { getQueryParamsFromUrl } from 'utils/get-query-string-from-url';
 import ListPokemon from './component/list-pokemon';
@@ -30,6 +31,7 @@ export class PokemonList extends Component {
             .then((resByName) => {
               pokemonList.push(resByName);
             });
+          return null;
         });
         if (res.next) {
           this.setState({
@@ -44,17 +46,20 @@ export class PokemonList extends Component {
   }
   render() {
     const { pokemonList, hasMoreItem } = this.state;
-    const loader = <div className="loader"><Spin tip="Loading..." /></div>;
+    const loader = <div key={uuidv4()} className="loader"><Spin tip="Loading..." /></div>;
 
     return (
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={this.fetchPokemonList}
-        hasMore={hasMoreItem}
-        loader={loader}
-      >
-        <ListPokemon dataSource={pokemonList} />
-      </InfiniteScroll>
+      <Fragment>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.fetchPokemonList}
+          hasMore={hasMoreItem}
+          loader={loader}
+        >
+          <ListPokemon dataSource={pokemonList} />
+        </InfiniteScroll>
+        <BackTop style={{ color: '#1088e9' }} />
+      </Fragment>
     );
   };
 };
