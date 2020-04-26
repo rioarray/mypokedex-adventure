@@ -36,6 +36,7 @@ export const DetailPokemon = ({ visible, data, onCloseDetail }) => {
     element = (
       <Modal
         className="pokemon-detail"
+        style={{ top: 20 }}
         onCancel={onCloseDetail}
         visible={visible}
         footer={null}
