@@ -65,6 +65,7 @@ export class PokemonList extends Component {
         <FilterPokemon onChangeFilterData={this.onChangeFilterData} />
         <InfiniteScroll
           pageStart={0}
+          threshold={80}
           loadMore={this.fetchPokemonList}
           hasMore={hasMoreItem}
           loader={loader}
