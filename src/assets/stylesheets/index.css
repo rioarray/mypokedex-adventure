@@ -13,6 +13,14 @@
   background-position: center;
 }
 
+.filter-pokemon {
+  padding-top: 20px;
+}
+
+.filter-pokemon.opt-pokemon-type {
+  text-transform: capitalize;
+}
+
 .pokemon-list {
   padding-top: 20px;
 }

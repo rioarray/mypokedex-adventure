@@ -6,6 +6,7 @@ import { DashboardOutlined, ColumnHeightOutlined } from '@ant-design/icons';
 import { PokemonTypes } from 'components/atom/pokemon-types'
 import { IconWithLabelSmall } from 'components/molecules/icon-with-label-small';
 import CartBarProps from 'helpers/cart-bar-props';
+import noImage from 'assets/images/no-image-icon.png'
 
 const { Title } = Typography;
 
@@ -42,7 +43,7 @@ export const DetailPokemon = ({ visible, data, onCloseDetail }) => {
       >
         <Row>
           <Col span={10}>
-            <img src={data.sprites.front_default} alt="thumbnail" width="100%" />
+            <img src={data.sprites.front_default || noImage} alt="thumbnail" width="100%" />
           </Col>
           <Col span={14}>
             <Title level={2} className="pokemon-name">{data.name}</Title>

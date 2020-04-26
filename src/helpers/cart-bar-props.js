@@ -10,7 +10,7 @@ export const CartBarProps = {
   dataLabels: { enabled: false },
   yaxis: {
     labels: {
-      style: { cssClass: 'pokemon-stats-label', }
+      style: { cssClass: 'pokemon-stats-label' },
     },
   },
 };

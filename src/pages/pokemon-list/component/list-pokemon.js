@@ -3,6 +3,7 @@ import { Col, List, Row, Typography } from 'antd';
 import { DashboardOutlined, ColumnHeightOutlined } from '@ant-design/icons';
 import { PokemonTypes } from 'components/atom/pokemon-types'
 import { IconWithLabelSmall } from 'components/molecules/icon-with-label-small';
+import noImage from 'assets/images/no-image-icon.png'
 import { DetailPokemon } from './detail-pokemon';
 
 const { Title } = Typography;
@@ -32,7 +33,7 @@ export const ListPokemon = ({ dataSource }) => {
             <List.Item onClick={() => onClickItem(item)} style={{ cursor: 'pointer' }}>
               <Row>
                 <Col md={12} lg={8}>
-                  <img src={item.sprites.front_default} alt="thumbnail" />
+                  <img src={item.sprites.front_default || noImage} alt="thumbnail" width="96px" />
                 </Col>
                 <Col md={12} lg={16}>
                   <Title level={4} className="pokemon-name">{item.name}</Title>

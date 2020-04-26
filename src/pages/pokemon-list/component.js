@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import InfiniteScroll from 'react-infinite-scroller';
 import { getQueryParamsFromUrl } from 'utils/get-query-string-from-url';
 import ListPokemon from './component/list-pokemon';
+import FilterPokemon from './component/filter-pokemon';
 
 export class PokemonList extends Component {
   constructor(props) {
@@ -12,12 +13,17 @@ export class PokemonList extends Component {
 
     this.state = {
       pokemonList: [],
+      filterData: [],
       hasMoreItem: true,
       limit: 27,
       offset: 0,
     };
 
+    this.onChangeFilterData = this.onChangeFilterData.bind(this);
     this.fetchPokemonList = this.fetchPokemonList.bind(this);
+  }
+  onChangeFilterData(filterData) {
+    this.setState({ filterData });
   }
   fetchPokemonList() {
     const { pokemonList, limit, offset } = this.state;
@@ -45,18 +51,25 @@ export class PokemonList extends Component {
       });
   }
   render() {
-    const { pokemonList, hasMoreItem } = this.state;
-    const loader = <div key={uuidv4()} className="loader"><Spin tip="Loading..." /></div>;
+    const { pokemonList, filterData, hasMoreItem } = this.state;
+    let dataSource = pokemonList;
 
+    const loader = <div key={uuidv4()} className="loader"><Spin tip="Loading..." /></div>;
+    const dataFiltered = dataSource.filter((x) => filterData.some((y) => y === x.name));
+
+    if (dataFiltered.length > 0) {
+      dataSource = dataFiltered;
+    }
     return (
       <Fragment>
+        <FilterPokemon onChangeFilterData={this.onChangeFilterData} />
         <InfiniteScroll
           pageStart={0}
           loadMore={this.fetchPokemonList}
           hasMore={hasMoreItem}
           loader={loader}
         >
-          <ListPokemon dataSource={pokemonList} />
+          <ListPokemon dataSource={dataSource} />
         </InfiniteScroll>
         <BackTop style={{ color: '#1088e9' }} />
       </Fragment>
